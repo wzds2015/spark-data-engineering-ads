@@ -1,7 +1,5 @@
-This challenge is used by MediaMath for evaluating candidates to data engineering positions.
-
 # Background
-Advertisers want to understand how digital advertising generates interactions with their brands and websites: clicks, visits, purchases, etc. MediaMath collects such interactions and ties them to the ads that are displayed online through a process called attribution.
+Advertisers want to understand how digital advertising generates interactions with their brands and websites: clicks, visits, purchases, etc. AdTech company collects such interactions and ties them to the ads that are displayed online through a process called attribution.
 
 # The challenge
 
@@ -117,7 +115,7 @@ Column number | Column name  | Type | Description
 If a user had generated multiple event types for a given advertiser, the user should be counted multiple times (once for each event type). The sum of the unique users by group can be higher than the unique users of the advertiser across groups.
 
 # Rules of the game
-This challenge is a chance for MediaMath engineers to see how you code and organize a project to implement a specification.
+This challenge is a chance for engineers to see how you code and organize a project to implement a specification.
 
 ## Deliverables
 The expected deliverable is a fully functional project that includes the following:
