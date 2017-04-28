@@ -1,0 +1,12 @@
+# sbt specific
+.cache
+.history
+.lib/
+target/
+project/target/
+project/project/target/
+data
+
+
+.DS_Store
+.idea/
