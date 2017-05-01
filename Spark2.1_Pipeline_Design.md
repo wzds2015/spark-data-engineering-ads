@@ -31,7 +31,7 @@
 ## Testing
 I include 2 kinds of testing:  
 1) [scalatest](http://www.scalatest.org/). 
-	scalatest in this project is used for unit test on utilities functions. We use the style "FlatSpec + Matchers". I tested all functions (5 plus one tested in another)  
+	scalatest in this project is used for unit test on utilities functions. We use the style "FlatSpec + Matchers".  
 2) [spark-testing-base](https://github.com/holdenk/spark-testing-base).    
 
 Source Files:  
