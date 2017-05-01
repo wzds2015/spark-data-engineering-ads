@@ -81,6 +81,8 @@ object Attribution {
     */
   def countAttrByAdAndEtype(attrDs: Dataset[GeneralAtrribute], spark: SparkSession) : Dataset[AttributeCount] = {
     import spark.implicits._
+    // ToDo: check if summation or other process on aggregated data is distributed or not
+    // ToDo: Likely not, need further investigation to improve speed considering long list for summation
     attrDs.groupBy("aid", "etype").agg(sum(col("cnt")) as "cnt")
       .as[AttributeCountBig]
       .map(acb => AttributeCount(acb.aid, acb.etype, acb.cnt.toInt))
