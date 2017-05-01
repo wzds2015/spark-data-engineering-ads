@@ -60,6 +60,7 @@ There are two ways to run the code:
 		2.2. Clean files due to previous assembly
 		2.3. pack the source code using assembly
 		2.4. delete META-INF related unrelated files in jar using zip
-		2.5. Run the code
+		2.5. Run the code. 
+
 
 **NOTICE:** If there is new data other then the testing files, user needs to change paths in run.py

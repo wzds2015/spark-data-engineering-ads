@@ -45,6 +45,6 @@ assemblyMergeStrategy in assembly := {
   case _ => MergeStrategy.first
 }
 
-mainClass in assembly := Some("com.nyu.summary.summarize")
+mainClass in assembly := Some("com.nyu.summary.Summarize")
 
 parallelExecution in Test := false
