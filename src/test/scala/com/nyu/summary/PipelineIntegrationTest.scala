@@ -5,7 +5,7 @@ import org.apache.spark.sql.Dataset
 import org.scalatest.FunSuite
 
 /**
-  * Created by wzhao on 4/30/17.
+  * Created by Wenliang Zhao on 4/30/17.
   */
 class PipelineIntegrationTest extends FunSuite with DatasetSuiteBase {
   test("Test on Whole Pipeline") {
@@ -23,7 +23,7 @@ class PipelineIntegrationTest extends FunSuite with DatasetSuiteBase {
       .load(Parameters.impressionTestFile)
       .as[Impression]
 
-    val (attrCountDs, uniqueUserCountDs) = summarize.pipeline(eventDs, impressionDs, spark)
+    val (attrCountDs, uniqueUserCountDs) = Summarize.pipeline(eventDs, impressionDs, spark)
 
     val ra1 = AttributeCount(0, "click", 59)
     val ra2 = AttributeCount(0, "visit", 63)

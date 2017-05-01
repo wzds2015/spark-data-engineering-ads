@@ -16,7 +16,7 @@ libraryDependencies ++= {
     "com.databricks" %% "spark-csv" % "1.5.0",
     "mysql" % "mysql-connector-java" % "5.1.24",
     "org.scalatest" %% "scalatest" % "3.0.1" % "test",
-    "com.holdenkarau" %% "spark-testing-base" % "1.6.1_0.3.3" % "test"
+    "com.holdenkarau" %% "spark-testing-base" % "2.1.0_0.6.0" % "test"
   )
 }
 
@@ -45,4 +45,6 @@ assemblyMergeStrategy in assembly := {
   case _ => MergeStrategy.first
 }
 
-mainClass in assembly := Some("com.nyu.usract.UserActivityPipeline")
+mainClass in assembly := Some("com.nyu.summary.summarize")
+
+parallelExecution in Test := false

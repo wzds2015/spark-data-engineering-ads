@@ -26,7 +26,7 @@ The statistics that the application should compute are:
 Consider the following series of events and impressions:
 
  | Timestamp | Advertiser ID | User ID | Should it be attributed?
-------------- | ------------- | ------------- | ------------- | -------------
+------------- | ------------- | ------------- | ------------- | -------------  
 event | 1450631448  | 1 | 60b74052-fd7e-48e4-aa61-3c14c9c714d5 | No, because there is no impression for the same advertiser and user before this event.
 impression | 1450631450  | 1 | 60b74052-fd7e-48e4-aa61-3c14c9c714d5 | No, only events get attributed.
 event | 1450631452  | 1 | 60b74052-fd7e-48e4-aa61-3c14c9c714d5 | Yes, because there is an impression for the same advertiser and user before this event.

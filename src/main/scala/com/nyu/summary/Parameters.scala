@@ -1,29 +1,37 @@
 package com.nyu.summary
 
+import com.nyu.summary.Parameters._
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 
 /**
-  * Created by wzhao on 4/30/17.
+  * Created by Wenliang Zhao on 4/30/17.
   */
 
 // case classes
-case class Event(ts: Int, eid: String, aid: Int, uid: String, etype: String)
-case class Impression(ts: Int, aid: Int, cid: Int, uid: String)
-case class GeneralRecord(ts: Int, aid: Int, uid: String, etype: String)
-case class CollectionByAdUser(aid: Int, uid: String, etype: String, tsList: Seq[Int])
-case class GeneralRecord1(ts: Int, aid: Int, uid: String, etype: String)
-case class GeneralRecordAgg(aid: Int, uid: String, tsList: Seq[Int], etypeList: Seq[String])
-case class GeneralRecordMap(aid: Int, uid: String, mp: Map[String, Int])
-case class GeneralAtrribute(aid: Int, uid: String, etype: String, cnt: Int)
-case class GeneralAttrWithoutType(aid: Int, uid: String, cnt: Int)
-case class AttributeCountBig(aid: Int, etype: String, cnt: BigInt)
-case class AttributeCount(aid: Int, etype: String, cnt: Int)
-case class UniqueUserList(aid: Int, etype: String, uidList: Seq[String])
-case class UniqueUserCount(aid: Int, etype: String, cnt: Int)
-
+case class Event(ts: TimeStamp, eid: EventId, aid: AdvertizerId, uid: UserId, etype: EventType)
+case class Impression(ts: TimeStamp, aid: AdvertizerId, cid: CreativeId, uid: UserId)
+case class GeneralRecord(ts: TimeStamp, aid: AdvertizerId, uid: UserId, etype: EventType)
+case class CollectionByAdUser(aid: AdvertizerId, uid: UserId, etype: EventType, tsList: Seq[TimeStamp])
+case class GeneralRecord1(ts: TimeStamp, aid: AdvertizerId, uid: UserId, etype: EventType)
+case class GeneralRecordAgg(aid: AdvertizerId, uid: UserId, tsList: Seq[TimeStamp], etypeList: Seq[EventType])
+case class GeneralRecordMap(aid: AdvertizerId, uid: UserId, mp: Map[EventType, Int])
+case class GeneralAtrribute(aid: AdvertizerId, uid: UserId, etype: EventType, cnt: Int)
+case class GeneralAttrWithoutType(aid: AdvertizerId, uid: UserId, cnt: Int)
+case class AttributeCountBig(aid: AdvertizerId, etype: EventType, cnt: BigInt)
+case class AttributeCount(aid: AdvertizerId, etype: EventType, cnt: Int)
+case class UniqueUserList(aid: AdvertizerId, etype: EventType, uidList: Seq[UserId])
+case class UniqueUserCount(aid: AdvertizerId, etype: EventType, cnt: Int)
 
 
 object Parameters {
+  // Customized Types
+  type TimeStamp = Int
+  type EventId = String
+  type AdvertizerId = Int
+  type UserId = String
+  type EventType = String
+  type CreativeId = Int
+
   val eventSchema = StructType(Array(
     StructField("ts", IntegerType, false),
     StructField("eid", StringType, false),

@@ -6,7 +6,10 @@ target/
 project/target/
 project/project/target/
 data
+output
 
 
 .DS_Store
+derby.log
 .idea/
+metastore_db
