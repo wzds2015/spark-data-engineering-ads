@@ -56,7 +56,7 @@ There are two ways to run the code:
 	Use sbt assembly to pack the source code into a jar file, and run it accordingly.
 	There is a python code "run.py" which automatically run everything. There are 5 steps in run.py
 		
-		2.1. Remove results from previous run (data/output_file, metastore_db)
+		2.1. Remove results from previous run (output/*, metastore_db)
 		2.2. Clean files due to previous assembly
 		2.3. pack the source code using assembly
 		2.4. delete META-INF related unrelated files in jar using zip
