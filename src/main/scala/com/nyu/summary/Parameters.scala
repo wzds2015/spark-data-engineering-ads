@@ -44,7 +44,7 @@ object Parameters {
     StructField("ts", IntegerType, false),
     StructField("aid", IntegerType, false),
     StructField("cid", IntegerType, false),
-    StructField("uid", StringType)
+    StructField("uid", StringType, false)
   ))
 
   val eventTestFile = "data/events.csv"
