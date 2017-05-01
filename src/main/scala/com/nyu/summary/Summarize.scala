@@ -61,7 +61,7 @@ object Summarize extends App {
     */
   def pipeline(events: Dataset[Event], impression: Dataset[Impression], spark: SparkSession)
         : (Dataset[AttributeCount], Dataset[UniqueUserCount]) = {
-    val merged = originToMerged(events, impression, spark)
+    val merged = originToMerged(events, impression, spark).persist
     mergedToResult(merged, spark)
   }
 
@@ -73,7 +73,7 @@ object Summarize extends App {
     * @return             partial pipeline from raw to merged dataset (event and impression)
     */
   def originToMerged(events: Dataset[Event], impression: Dataset[Impression], spark: SparkSession) : Dataset[GeneralRecord1] = {
-    val deDupEvents = DeDuplication.deDuplicate(events, spark)
+    val deDupEvents = DeDuplication.deDuplicate(events, spark).persist
     val impEvents = Attribution.impressionToEvent(impression, spark)
     Attribution.mergeRecords(deDupEvents, impEvents)
   }
@@ -86,7 +86,7 @@ object Summarize extends App {
     */
   def mergedToResult(records: Dataset[GeneralRecord1], spark: SparkSession)
       : (Dataset[AttributeCount], Dataset[UniqueUserCount]) = {
-    val attrDs = Attribution.buildAttrDs(records, spark)
+    val attrDs = Attribution.buildAttrDs(records, spark).persist
     (Attribution.countAttrByAdAndEtype(attrDs, spark), Attribution.countUniqueUser(attrDs, spark))
   }
 }
